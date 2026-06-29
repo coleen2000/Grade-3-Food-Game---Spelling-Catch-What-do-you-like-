@@ -11,7 +11,6 @@
             --p1-bg: #e0f3ff;
             --p2-color: #ff0844;
             --p2-bg: #ffe0e9;
-            /* Uniform font points strictly to bubbly font */
             --default-font: 'Fredoka One', cursive;
         }
 
@@ -50,7 +49,6 @@
             z-index: 10;
         }
 
-        /* CSS Capybara Mascot */
         .capybara {
             width: 140px;
             height: 110px;
@@ -95,7 +93,6 @@
         .capy-blush.left { left: 20px; }
         .capy-blush.right { right: 40px; }
 
-        /* Timer Settings on Start Screen */
         .timer-settings {
             z-index: 10;
             margin-bottom: 30px;
@@ -105,22 +102,32 @@
             text-shadow: 4px 4px 0 #4a2f1d, 6px 6px 0 rgba(0,0,0,0.2);
             display: flex;
             align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
             gap: 15px;
         }
 
-        #timer-input {
-            font-size: 2.5rem;
-            width: 120px;
+        #timer-input, #speed-input {
+            font-size: 2.3rem;
             text-align: center;
             border-radius: 15px;
             border: 5px solid #4a2f1d;
             background: #ffcc00;
             color: #fff;
-            -webkit-text-stroke: 2px #4a2f1d;
+            -webkit-text-stroke: 1.5px #4a2f1d;
             box-shadow: 0 5px 0 #b38f00;
             outline: none;
             pointer-events: auto; 
             user-select: auto;
+            padding: 5px 10px;
+        }
+        
+        #timer-input {
+            width: 120px;
+        }
+
+        #speed-input {
+            cursor: pointer;
         }
 
         .menu-buttons {
@@ -162,7 +169,6 @@
             box-shadow: 0 0px 0 transparent, 0 5px 10px rgba(0,0,0,0.2);
         }
 
-        /* Rotating Background Animation */
         .floating-bg-food {
             position: absolute;
             opacity: 0.7;
@@ -189,7 +195,6 @@
             position: relative;
         }
 
-        /* Home Button */
         #home-btn {
             position: absolute;
             top: 15px;
@@ -204,7 +209,7 @@
             box-shadow: 0 5px 0 #cc8400;
             transition: transform 0.1s;
             -webkit-text-stroke: 1.5px #cc8400;
-            z-index: 100;
+            z-index: 210;
         }
         #home-btn:active {
             transform: translateY(5px);
@@ -236,13 +241,12 @@
             flex: 1;
             position: relative;
             overflow: hidden; 
+            transition: background-color 0.5s ease;
         }
 
-        /* Screen Sides explicitly Chef Left, Customer Right in G3 mode */
         #screen-chef { background-color: var(--p2-bg); border-right: 4px dashed #ccc; }
         #screen-customer { background-color: var(--p1-bg); }
         
-        /* Updated Score Box CSS to anchor perfectly beside the timer */
         .score-box {
             position: absolute;
             top: 15px;
@@ -267,22 +271,20 @@
             position: relative;
         }
 
-        /* G1 UI Positioning */
         #p1-g1-ui, #p2-g1-ui {
-            justify-content: center; /* This perfectly centers the image and word */
-            padding-bottom: 80px; /* Accounts for the boxes at the bottom */
+            justify-content: center;
+            padding-bottom: 80px;
         }
 
-        /* General Food Display (G1, G2) */
         .food-display {
-            font-size: 10rem; /* Increased size */
+            font-size: 10rem;
             margin-bottom: 30px; 
             animation: pulse 1s infinite alternate;
             background: #fff; 
             border: 8px solid #ffd700; 
             border-radius: 50%;
-            width: 250px; /* Increased size */
-            height: 250px; /* Increased size */
+            width: 250px;
+            height: 250px;
             display: flex; 
             align-items: center;
             justify-content: center; 
@@ -291,11 +293,10 @@
 
         @keyframes pulse { 0% { transform: scale(1); } 100% { transform: scale(1.05); } }
 
-        /* Standard Game 1 Word Box */
         .puzzle-word {
-            font-size: 7rem; /* Increased size */
+            font-size: 7rem;
             letter-spacing: 10px; 
-            margin-bottom: 0; /* Removed margin to keep it centered */
+            margin-bottom: 0;
             color: #fff;
             text-transform: lowercase;
             -webkit-text-stroke: 3px #333; 
@@ -306,7 +307,6 @@
             transition: background-color 0.2s, border-color 0.2s, transform 0.1s;
         }
 
-        /* Enhanced Game 2 Word Box */
         .g2-word {
             font-size: 8rem; text-transform: lowercase;
             letter-spacing: 0px; position: absolute; top: 50%; left: 50%;
@@ -317,17 +317,16 @@
         .puzzle-word.correct { background-color: #4caf50; border-color: #2e7d32; }
         .puzzle-word.incorrect { background-color: #f44336; border-color: #c62828; }
 
-        /* Game 1 Options */
         .options-container { 
             display: flex; 
             gap: 30px; 
             position: absolute; 
-            bottom: 40px; /* Forces boxes to the bottom for easy reach */
+            bottom: 40px;
         }
         .letter-btn {
-            width: 120px; /* Increased size */
-            height: 120px; /* Increased size */
-            font-size: 5rem; /* Increased size */
+            width: 120px;
+            height: 120px;
+            font-size: 5rem;
             border-radius: 25px;
             border: 6px solid #fff; 
             background: #ffcc00; 
@@ -342,15 +341,14 @@
         #screen-chef .letter-btn { background: var(--p2-color); box-shadow: 0 10px 0 #cc0033; }
         .letter-btn:active, .letter-btn.pressed { transform: translateY(10px); box-shadow: 0 0px 0 transparent !important; }
         
-        /* Game 2 Floating Emojis */
         .floating-options-container {
             position: absolute; top: 0; left: 0; right: 0; bottom: 0; pointer-events: none;
         }
         .emoji-btn {
             position: absolute; 
-            width: 160px; /* Increased for kids */
-            height: 160px; /* Increased for kids */
-            font-size: 7.5rem; /* Increased for kids */
+            width: 160px;
+            height: 160px;
+            font-size: 7.5rem;
             background: #fff; border: 6px solid #ffcc00; border-radius: 50%; cursor: pointer;
             box-shadow: 0 8px 0 #b38f00; display: flex; align-items: center; justify-content: center;
             transition: background-color 0.2s, border-color 0.2s, transform 0.05s;
@@ -361,11 +359,24 @@
         .emoji-btn:active, .emoji-btn.pressed { transform: scale(0.8) !important; box-shadow: 0 0px 0 transparent !important; }
         .disabled { opacity: 0.5; pointer-events: none; }
 
+        /* Match End Result Overlay Screens */
+        .end-status-overlay {
+            display: none;
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 90;
+        }
+        .end-status-emoji {
+            font-size: 18rem;
+            animation: bounce 1.2s infinite alternate;
+        }
 
         /* ================= GAME 3 SPECIFIC CSS ================= */
         #g3-chef-ui, #g3-customer-ui { justify-content: start; padding-top: 100px; }
 
-        /* Emoji bubbles for characters */
         .g3-char-pic {
             width: 180px; height: 180px; border-radius: 50%; border: 8px solid #fff;
             box-shadow: 0 10px 15px rgba(0,0,0,0.1); margin-bottom: 20px; object-fit: cover;
@@ -375,7 +386,6 @@
             background: rgba(255, 255, 255, 0.5);
         }
 
-        /* G3 Right (Customer Screen 2) Styles */
         .g3-customer-speech {
             font-size: 4rem; color: #fff; -webkit-text-stroke: 1.5px #333; text-shadow: 2px 2px 0 #333;
             text-align: center; margin-bottom: 40px;
@@ -389,7 +399,6 @@
             border-bottom: 5px solid transparent; background: #fff; color: #333; border-radius: 15px; padding: 5px 30px; -webkit-text-stroke: 0; text-shadow: none;
         }
         
-        /* Menu Grid */
         .g3-menu-grid {
             display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; width: 95%; max-width: 500px; transition: opacity 0.3s;
         }
@@ -402,7 +411,6 @@
         .g3-emoji { font-size: 3.5rem; } 
         .g3-label { font-size: 1.2rem; font-weight: bold; color: #333;}
 
-        /* G3 Left (Chef Screen 1) Sentence Builder */
         #g3-chef-sentence-mode {
             width: 100%; display: flex; flex-direction: column; align-items: center;
         }
@@ -428,7 +436,6 @@
         }
         .g3-word-btn:active { transform: translateY(8px); box-shadow: none; }
 
-        /* G3 Left (Chef Screen 1) Conveyor Belt */
         #g3-chef-conveyor-mode {
             width: 100%; display: flex; flex-direction: column; align-items: center;
         }
@@ -451,16 +458,12 @@
         .g3-belt-item:active { transform: scale(0.9); }
         @keyframes moveRightBelt { from { left: -140px; } to { left: 110%; } }
 
-        /* End Screen */
+        /* End Screen Overlay Layout - Made perfectly transparent to not cover up colored backgrounds */
         #end-screen {
             display: none; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(0,0,0,0.85); z-index: 200; flex-direction: column;
-            align-items: center; justify-content: center; color: #fff;
+            background: transparent; z-index: 200; flex-direction: column;
+            align-items: center; justify-content: center;
         }
-        .winnerText {
-            font-size: 6rem; color: #ffd700; -webkit-text-stroke: 3px #fff; margin-bottom: 30px; text-align: center;
-        }
-
     </style>
 </head>
 <body>
@@ -480,6 +483,11 @@
 
         <div class="timer-settings">
             Time: <input type="number" id="timer-input" value="60" min="10" max="300"> sec
+            <span style="margin-left: 15px;">Game 2:</span>
+            <select id="speed-input">
+                <option value="fast" selected>Fast ⚡</option>
+                <option value="slow">Slow 🐢</option>
+            </select>
         </div>
 
         <div class="menu-buttons">
@@ -525,6 +533,10 @@
                         </div>
                     </div>
                 </div>
+
+                <div id="p2-status-overlay" class="end-status-overlay">
+                    <div class="end-status-emoji" id="p2-status-emoji">😊</div>
+                </div>
             </div>
 
             <div id="screen-customer" class="player-side">
@@ -550,17 +562,19 @@
                     <div class="g3-menu-grid" id="g3-menu">
                     </div>
                 </div>
+
+                <div id="p1-status-overlay" class="end-status-overlay">
+                    <div class="end-status-emoji" id="p1-status-emoji">😊</div>
+                </div>
             </div>
         </div>
     </div>
 
     <div id="end-screen">
-        <div class="winnerText" id="winner-text">Player 1 Wins!</div>
-        <button class="start-btn" onclick="goHome()">Main Menu</button>
+        <button class="start-btn" onclick="startGame(currentMode)" style="font-size: 3.5rem; background: #4caf50; border-color: #fff; box-shadow: 0 10px 0 #2e7d32; z-index: 220;">Play Again 🔄</button>
     </div>
 
     <script>
-        // Vocabulary Targets for Game 1 & Game 2
         const foods = [
             { word: 'pizza', emoji: '🍕' },
             { word: 'hamburger', emoji: '🍔' },
@@ -572,7 +586,6 @@
             { word: 'orange', emoji: '🍊' }
         ];
 
-        // Grammatically correct plural variations specifically generated for Game 3
         const foodsG3 = [
             { word: 'pizza', plural: 'pizza', emoji: '🍕' },
             { word: 'hamburger', plural: 'hamburgers', emoji: '🍔' },
@@ -584,13 +597,12 @@
             { word: 'orange', plural: 'oranges', emoji: '🍊' }
         ];
 
-        const distractors = ['🧦', '👟', '🚗', '⚽', '🧸', '🎈', '🎸', '📱', '🐟', '🍩', '🍟', '🌮', '🍿', '🍦', '🍪'];
+        const distractors = ['🧦', '👟', '🚗', '⚽', '🧸', '🎈', '🎸', '📱', '🐟', '🍩', '🍟', '🍿', '🍦', '🍪'];
 
         let score1 = 0; let score2 = 0; 
         let timeLeft = 60;
         let gameInterval; let currentMode = 1;
 
-        // Visual Background for Start Menu
         function createRotatingBackground() {
             const startScreen = document.getElementById('start-screen');
             const bgEmojis = ['🍔','🍕','🍎','🍇','🍉','🍩','🍟','🥗','🥞','🍓','🍗','🍲','🍜','🌮','🍣','🌭','🍿','🍦','🍪','🥑', '🍚', '🥩', '🍞', '🍊', '🍌', '🍝'];
@@ -615,9 +627,19 @@
             timeLeft = (isNaN(inputTime) || inputTime <= 0) ? 60 : inputTime;
 
             document.getElementById('start-screen').style.display = 'none';
+            document.getElementById('end-screen').style.display = 'none';
             document.getElementById('game-screen').style.display = 'block';
             
-            // SCORE & TIMER HANDLING
+            document.getElementById('screen-chef').style.backgroundColor = 'var(--p2-bg)';
+            document.getElementById('screen-customer').style.backgroundColor = 'var(--p1-bg)';
+            document.getElementById('p1-status-overlay').style.display = 'none';
+            document.getElementById('p2-status-overlay').style.display = 'none';
+
+            score1 = 0;
+            score2 = 0;
+            updateScore(1);
+            updateScore(2);
+
             if (mode === 3) {
                 document.getElementById('timer-bar').style.display = 'none'; 
                 document.getElementById('score-box-p1').style.display = 'none';
@@ -630,7 +652,6 @@
                 document.getElementById('time-left').innerText = timeLeft; 
             }
             
-            // Toggle Visibility
             document.getElementById('p1-g1-ui').style.display = mode === 1 ? 'flex' : 'none';
             document.getElementById('p2-g1-ui').style.display = mode === 1 ? 'flex' : 'none';
             document.getElementById('p1-g2-ui').style.display = mode === 2 ? 'flex' : 'none';
@@ -642,7 +663,7 @@
             else if (mode === 2) { generateG2(1); generateG2(2); }
             else if (mode === 3) { generateG3(); }
             
-            // Start countdown only if a timer is active (G1/G2)
+            if (gameInterval) clearInterval(gameInterval);
             if (timeLeft !== null) {
                 gameInterval = setInterval(() => {
                     timeLeft--;
@@ -656,7 +677,7 @@
         function generateG1(pNum) {
             const currentFood = foods[Math.floor(Math.random() * foods.length)];
             
-            let currentDomesticScreen = (pNum === 1) ? document.getElementById('screen-chef') : document.getElementById('screen-customer');
+            let currentDomesticScreen = (pNum === 1) ? document.getElementById('screen-customer') : document.getElementById('screen-chef');
             let foodEl = currentDomesticScreen.querySelector('.food-display');
             let wordEl = currentDomesticScreen.querySelector('.puzzle-word');
             let optionsContainer = currentDomesticScreen.querySelector('.options-container');
@@ -703,13 +724,15 @@
             wordEl.innerText = guessedWord;
             Array.from(container.children).forEach(child => child.classList.add('disabled'));
             if(selected === correct) {
-                if(pNum === 1) score2++; else score1++;
+                if(pNum === 1) score1++; else score2++;
                 wordEl.classList.add('correct');
             } else {
-                if(pNum === 1) score2--; else score1--;
+                if(pNum === 1) score1--; else score2--;
                 wordEl.classList.add('incorrect'); shakeElement(wordEl);
             }
-            updateScore(pNum); setTimeout(() => generateG1(pNum), 1500);
+            updateScore(pNum); setTimeout(() => {
+                if (timeLeft > 0) generateG1(pNum);
+            }, 1500);
         }
 
         // ================= GAME 2 LOGIC =================
@@ -717,7 +740,7 @@
         function generateG2(pNum) {
             const currentFood = foods[Math.floor(Math.random() * foods.length)];
             
-            let currentDomesticScreen = (pNum === 1) ? document.getElementById('screen-chef') : document.getElementById('screen-customer');
+            let currentDomesticScreen = (pNum === 1) ? document.getElementById('screen-customer') : document.getElementById('screen-chef');
             let wordEl = currentDomesticScreen.querySelector('.puzzle-word.g2-word');
             let container = currentDomesticScreen.querySelector('.floating-options-container');
 
@@ -745,6 +768,10 @@
             let minX = 0; let maxX = cWidth - btnSize;
             let minY = 100; let maxY = cHeight - btnSize;
 
+            let speedSetting = document.getElementById('speed-input').value;
+            let baseSpeed = speedSetting === 'slow' ? 2 : 4;
+            let speedRange = speedSetting === 'slow' ? 2 : 6;
+
             emojiOptions.forEach(emoji => {
                 let btn = document.createElement('button');
                 btn.className = 'emoji-btn'; btn.innerText = emoji;
@@ -752,9 +779,8 @@
                 let startY = Math.random() * (maxY - minY) + minY;
                 btn.style.left = startX + 'px'; btn.style.top = startY + 'px';
 
-                // Made floating speed slower for kids (Changed from 4-10 down to 2-4)
-                let speedX = (Math.random() * 2 + 2) * (Math.random() > 0.5 ? 1 : -1);
-                let speedY = (Math.random() * 2 + 2) * (Math.random() > 0.5 ? 1 : -1);
+                let speedX = (Math.random() * speedRange + baseSpeed) * (Math.random() > 0.5 ? 1 : -1);
+                let speedY = (Math.random() * speedRange + baseSpeed) * (Math.random() > 0.5 ? 1 : -1);
 
                 g2Physics[pNum].push({ el: btn, x: startX, y: startY, dx: speedX, dy: speedY });
                 
@@ -786,16 +812,18 @@
             cancelAnimationFrame(g2AnimFrames[pNum]);
             Array.from(container.children).forEach(child => child.classList.add('disabled'));
             if(selected === correct) {
-                if(pNum === 1) score2++; else score1++;
+                if(pNum === 1) score1++; else score2++;
                 wordEl.classList.add('correct');
                 clickedBtn.style.backgroundColor = '#4caf50'; clickedBtn.style.borderColor = '#2e7d32';
             } else {
-                if(pNum === 1) score2--; else score1--;
+                if(pNum === 1) score1--; else score2--;
                 wordEl.classList.add('incorrect');
                 clickedBtn.style.backgroundColor = '#f44336'; clickedBtn.style.borderColor = '#c62828';
                 shakeElementG2Center(wordEl);
             }
-            updateScore(pNum); setTimeout(() => generateG2(pNum), 1500);
+            updateScore(pNum); setTimeout(() => {
+                if (timeLeft > 0) generateG2(pNum);
+            }, 1500);
         }
         function shakeElementG2Center(el) {
             el.style.transform = "translate(calc(-50% + 10px), -50%)";
@@ -814,15 +842,12 @@
             g3Order = null;
             if(g3BeltInterval) clearInterval(g3BeltInterval);
             
-            // Strictly Capitalized "What" target structure
             g3SentenceTarget = ['What', 'do', 'you', 'like', '?'];
             
-            // Reset Customer Side (Screen 2 - Right)
             document.getElementById('g3-blank').innerText = '______';
             document.getElementById('g3-blank').classList.remove('filled');
             drawG3Menu(false); 
 
-            // Reset Chef Side (Screen 1 - Left)
             document.getElementById('g3-chef-sentence-mode').style.display = 'flex';
             document.getElementById('g3-chef-conveyor-mode').style.display = 'none';
             drawG3SentenceBuilder();
@@ -837,14 +862,12 @@
             foodsG3.forEach(f => {
                 let card = document.createElement('div');
                 card.className = 'g3-food-card';
-                // Show grammatically correct plurals inside menu selectors
                 card.innerHTML = `<div class="g3-emoji">${f.emoji}</div><div class="g3-label">${f.plural}</div>`;
                 card.addEventListener('pointerdown', (e) => {
                     e.preventDefault();
                     if(!isActive || g3Order) return; 
                     g3Order = f;
                     
-                    // Fills the sentence dynamically with the correct plural layout
                     document.getElementById('g3-blank').innerText = f.plural;
                     document.getElementById('g3-blank').classList.add('filled');
                     card.classList.add('selected');
@@ -975,8 +998,8 @@
 
         // ================= SHARED UTILS =================
         function updateScore(pNum) { 
-            if(pNum === 1) document.querySelector('#screen-chef .score-box span').innerText = score2;
-            else document.querySelector('#screen-customer .score-box span').innerText = score1;
+            if(pNum === 1) document.querySelector('#score1').innerText = score1;
+            else document.querySelector('#score2').innerText = score2;
         }
         
         function shakeElement(el) {
@@ -987,7 +1010,6 @@
             }, 100);
         }
 
-        // Soft Reset function to preserve the custom timer setting!
         function goHome() {
             clearInterval(gameInterval);
             if(g3BeltInterval) clearInterval(g3BeltInterval);
@@ -1003,6 +1025,11 @@
             document.getElementById('floating-options1').innerHTML = '';
             document.getElementById('floating-options2').innerHTML = '';
 
+            document.getElementById('screen-chef').style.backgroundColor = 'var(--p2-bg)';
+            document.getElementById('screen-customer').style.backgroundColor = 'var(--p1-bg)';
+            document.getElementById('p1-status-overlay').style.display = 'none';
+            document.getElementById('p2-status-overlay').style.display = 'none';
+
             document.getElementById('game-screen').style.display = 'none';
             document.getElementById('end-screen').style.display = 'none';
             document.getElementById('start-screen').style.display = 'flex';
@@ -1013,14 +1040,44 @@
             if(g3BeltInterval) clearInterval(g3BeltInterval);
             cancelAnimationFrame(g2AnimFrames[1]); cancelAnimationFrame(g2AnimFrames[2]);
 
-            document.getElementById('game-screen').style.display = 'none';
-            document.getElementById('end-screen').style.display = 'flex';
+            if (currentMode === 1 || currentMode === 2) {
+                let p1Overlay = document.getElementById('p1-status-overlay');
+                let p2Overlay = document.getElementById('p2-status-overlay');
+                let p1Emoji = document.getElementById('p1-status-emoji');
+                let p2Emoji = document.getElementById('p2-status-emoji');
+                let screenP1 = document.getElementById('screen-customer');
+                let screenP2 = document.getElementById('screen-chef');
 
-            let wintxt = "";
-            if(score1 > score2) wintxt = "Player 1 Wins!";
-            else if(score2 > score1) wintxt = "Player 2 Wins!";
-            else wintxt = "It's a Tie!";
-            document.getElementById('winner-text').innerText = wintxt;
+                if (score1 > score2) {
+                    screenP1.style.backgroundColor = '#4caf50';
+                    p1Emoji.innerText = '😊';
+                    p1Overlay.style.display = 'flex';
+
+                    screenP2.style.backgroundColor = '#f44336';
+                    p2Emoji.innerText = '😭';
+                    p2Overlay.style.display = 'flex';
+                } else if (score2 > score1) {
+                    screenP2.style.backgroundColor = '#4caf50';
+                    p2Emoji.innerText = '😊';
+                    p2Overlay.style.display = 'flex';
+
+                    screenP1.style.backgroundColor = '#f44336';
+                    p1Emoji.innerText = '😭';
+                    p1Overlay.style.display = 'flex';
+                } else {
+                    screenP1.style.backgroundColor = '#9e9e9e';
+                    p1Emoji.innerText = '😐';
+                    p1Overlay.style.display = 'flex';
+
+                    screenP2.style.backgroundColor = '#9e9e9e';
+                    p2Emoji.innerText = '😐';
+                    p2Overlay.style.display = 'flex';
+                }
+            }
+
+            setTimeout(() => {
+                document.getElementById('end-screen').style.display = 'flex';
+            }, 500);
         }
     </script>
 </body>
